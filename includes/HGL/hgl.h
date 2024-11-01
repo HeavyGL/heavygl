@@ -3,15 +3,10 @@
 #ifndef HGL_H
 #define HGL_H 1
 
-typedef struct GLerror_ {
-
-    const char* msg;
-    int type;
-
-} GLerror;
+typedef int GLerror;
 
 /* HeavyGL Special Functions */
-void glXSetPxBuffer(intptr_t, int, int);
+void glXSetContext(intptr_t, int, int);
 
 /* HeavyGL Common Functions */
 void glClearColor(float, float, float);
