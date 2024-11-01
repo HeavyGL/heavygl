@@ -1,5 +1,5 @@
 <div align="center">
-  <h1><img src=".github/assets/images/heavygl_logo-transparent.png" width="60%" height="100%" /></h1>
+  <h1><img src="assets/images/heavygl_logo-transparent.png" width="60%" height="100%" /></h1>
 
   <h3>
     <a href="https://github.com/HeavyGL/heavygl/wiki">
