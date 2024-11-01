@@ -1,0 +1,1 @@
+Put the `MGL/` folder in your **GCC** includes ;)
