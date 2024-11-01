@@ -6,7 +6,6 @@
 
 #include "HGL/hgl.h"
 #include <stdint.h>
-#include <string.h>
 
 static int width = 0, height = 0, area = 0;
 static uint32_t * pixels = NULL;
@@ -35,7 +34,8 @@ void glClearColor(float r, float g, float b)
 
 void glClear()
 {
-    memset(pixels, clearColor, sizeof(pixels));
+    for (int i = 0; i < area; i++)
+        pixels[i] = clearColor;
 }
 
 GLerror glGetError()
