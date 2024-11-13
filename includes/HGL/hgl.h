@@ -61,6 +61,10 @@ void glClear();
  */
 void glClearColor(float, float, float);
 
+// --- [ glFillRect ] ---
+
+void glFillRect(float, float, float, float);
+
 // --- [ glGetError ] ---
 
 GLerror glGetError();
