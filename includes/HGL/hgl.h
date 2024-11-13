@@ -1,13 +1,11 @@
 /*
- * HeavyGL Specification 1.1
+ * HGL Specification 1.2
  */
-
 #pragma once
 
 #ifndef HGL_H
 #define HGL_H 1
 
-#define GL_VENDOR   0x1F00
 #define GL_VERSION  0x1F02
 
 #define GL_NO_ERROR                       0x0
@@ -25,27 +23,58 @@
 
 typedef int GLerror;
 
-/* HeavyGL Special Functions */
+/*** HeavyGL Special Functions ***/
+
+/**
+ * =================================================================
+ * EN: Specifies the color to clear the color buffer.
+ * ES: Especifica el color a limpiar el buffer de color.
+ * =================================================================
+ * NOTE: This method IS NOT the same as "glClear(void)".
+ */
 void glXSetContext(intptr_t, int, int);
 
-/* HeavyGL Common Functions */
-
-// --- [ glClearColor ] ---
-
-void glClearColor(float, float, float);
+/*** HeavyGL Common Functions ***/
 
 // --- [ glClear ] ---
 
+/**
+ * =================================================================
+ * EN: Clears the main color buffer.
+ * ES: Limpia el buffer de color actual.
+ * =================================================================
+ * NOTE: Not specified yet.
+ */
 void glClear();
 
-// --- [ glFillRect ] ---
+// --- [ glClearColor ] ---
 
-void glFillRect(float, float, float, float);
+/**
+ * =================================================================
+ * EN: Returns any error ocurred during the HeavyGL runtime.
+ * ES: Devuelve cualquier error ocurrido en el tiempo de ejecución
+ *     de HeavyGL.
+ * =================================================================
+ * NOTE: The state of the variable `gl_error' gets deleted
+ *       after retrieving its state.
+ * =================================================================
+ */
+void glClearColor(float, float, float);
+
+// --- [ glGetError ] ---
 
 GLerror glGetError();
 
 // --- [ glGetString ] ---
 
+/**
+ * =================================================================
+ * EN: Returns a string based on the provided ID.
+ * ES: Devuelve una cadena de texto basada en el identificador
+ *     proveído.
+ * =================================================================
+ * NOTE: Not specified yet.
+ */
 const char* glGetString(int);
 
-#endif
+#endif // HGL_H
