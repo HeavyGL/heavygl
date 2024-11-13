@@ -8,7 +8,7 @@
   </h3>
 
   <!-- Demo badge (should be replaced) -->
-  <img src="https://img.shields.io/badge/build-passing-green" loading="lazy" width="118.80000000000001" height="27" />  
+  <img src="https://img.shields.io/badge/build-passing-green" loading="lazy" width="119" height="27" />  
 
 </div>
 
