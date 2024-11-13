@@ -13,7 +13,7 @@
  * EN: Converts 3 floats to 1 unsigned integer
  * ES: Convierte 3 valores flotantes a un valor entero sin signo
  * =================================================================
- * NOTE: Not specified yet.
+ * NOTE: Empty.
  */
 uint32_t ColorRGB_3F(float, float, float);
 
@@ -22,7 +22,7 @@ uint32_t ColorRGB_3F(float, float, float);
  * EN: Converts 3 rgb integers to a single one
  * ES: Convierte 3 enteros rgb a uno solo
  * =================================================================
- * NOTE: Not specified yet.
+ * NOTE: Empty.
  */
 uint32_t ColorRGB_UB3(int, int, int);
 

@@ -13,15 +13,14 @@ static GLerror gl_error = GL_NO_ERROR;
 static uint32_t gl_color       = 0;
 static uint32_t gl_clear_color = 0;
 
-/*** HeavyGL Special Functions ***/
-
-void glXSetContext(intptr_t address, int w, int h)
-{
-    if (fb == NULL)
-		fb = FB_Existing(address, w, h);
-}
-
 /*** HeavyGL Common Functions ***/
+
+// --- [ glClear ] ---
+
+void glClear()
+{
+	FB_Fill(fb, gl_clear_color);
+}
 
 // --- [ glClearColor ] ---
 
@@ -36,12 +35,7 @@ void glClearColor(float r, float g, float b)
     gl_clear_color = ColorRGB_3F(r, g, b);
 }
 
-// --- [ glClear ] ---
-
-void glClear()
-{
-	FB_Fill(fb, gl_clear_color);
-}
+// --- [ glFillRect ] ---
 
 void glFillRect(float xf, float yf, float widthf, float heightf) {
     int x = (int) xf, y = (int) yf;
@@ -84,6 +78,14 @@ const char* glGetString(int id)
         default:
             return "null";
     }
+}
+
+/*** HeavyGL Special Functions ***/
+
+void glXSetContext(intptr_t address, int w, int h)
+{
+    if (fb == NULL)
+		fb = FB_Existing(address, w, h);
 }
 
 #endif

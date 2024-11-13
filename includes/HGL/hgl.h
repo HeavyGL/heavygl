@@ -23,17 +23,6 @@
 
 typedef int GLerror;
 
-/*** HeavyGL Special Functions ***/
-
-/**
- * =================================================================
- * EN: Specifies the color to clear the color buffer.
- * ES: Especifica el color a limpiar el buffer de color.
- * =================================================================
- * NOTE: This method IS NOT the same as "glClear(void)".
- */
-void glXSetContext(intptr_t, int, int);
-
 /*** HeavyGL Common Functions ***/
 
 // --- [ glClear ] ---
@@ -43,7 +32,7 @@ void glXSetContext(intptr_t, int, int);
  * EN: Clears the main color buffer.
  * ES: Limpia el buffer de color actual.
  * =================================================================
- * NOTE: Not specified yet.
+ * NOTE: Empty.
  */
 void glClear();
 
@@ -51,18 +40,23 @@ void glClear();
 
 /**
  * =================================================================
- * EN: Returns any error ocurred during the HeavyGL runtime.
- * ES: Devuelve cualquier error ocurrido en el tiempo de ejecución
- *     de HeavyGL.
+ * EN: Specifies the color to clear the color buffer.
+ * ES: Especifica el color a limpiar el buffer de color.
  * =================================================================
- * NOTE: The state of the variable `gl_error' gets deleted
- *       after retrieving its state.
- * =================================================================
+ * NOTE: This method IS NOT the same as "glClear(void)".
  */
 void glClearColor(float, float, float);
 
 // --- [ glFillRect ] ---
 
+/**
+ * =================================================================
+ * EN: Fills a rect based on the x, y, width and height position
+ * ES: Rellena un rectangulo basado en las coordenadas x, y, width
+ *     y height.
+ * =================================================================
+ * NOTE: Empty.
+ */
 void glFillRect(float, float, float, float);
 
 // --- [ glGetError ] ---
@@ -77,8 +71,21 @@ GLerror glGetError();
  * ES: Devuelve una cadena de texto basada en el identificador
  *     proveído.
  * =================================================================
- * NOTE: Not specified yet.
+ * NOTE: Empty.
  */
 const char* glGetString(int);
+
+/*** HeavyGL Special Functions ***/
+
+// --- [ glXSetContext ] ---
+
+/**
+ * =================================================================
+ * EN: Specifies the rendering context.
+ * ES: Especifica el contexto de renderizado.
+ * =================================================================
+ * NOTE: Empty.
+ */
+void glXSetContext(intptr_t, int, int);
 
 #endif // HGL_H
