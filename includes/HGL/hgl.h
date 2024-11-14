@@ -59,6 +59,19 @@ void glClearColor(float, float, float);
  */
 void glFillRect(float, float, float, float);
 
+// --- [ glFlush ] ---
+
+/**
+ * =================================================================
+ * EN: Sends the data from the back framebuffer to the front
+ *     framebuffer.
+ * ES: Envía información desde el "framebuffer" trasero hasta el
+ *     delantero.
+ * =================================================================
+ * NOTE: Empty.
+ */
+void glFlush();
+
 // --- [ glGetError ] ---
 
 GLerror glGetError();
