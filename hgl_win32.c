@@ -20,7 +20,7 @@ static uint32_t gl_clear_color = 0;
 
 void glClear()
 {
-	FB_Fill(frontfb, gl_clear_color);
+	FB_Fill(backfb, gl_clear_color);
 }
 
 // --- [ glClearColor ] ---
@@ -44,14 +44,14 @@ void glFillRect(float xf, float yf, float widthf, float heightf) {
 
     int x_start = x < 0 ? 0 : x;
     int y_start = y < 0 ? 0 : y;
-    int x_end = (x + width > frontfb->width) ? frontfb->width : (x + width);
-    int y_end = (y + height > frontfb->height) ? frontfb->height : (y + height);
+    int x_end = (x + width > backfb->width) ? backfb->width : (x + width);
+    int y_end = (y + height > backfb->height) ? backfb->height : (y + height);
 
     for (int row = y_start; row < y_end; row++) {
         for (int col = x_start; col < x_end; col++) {
-            int index = row * frontfb->width + col;
-            if (index >= 0 && index < frontfb->len)
-                frontfb->pixels[index] = gl_color;
+            int index = row * backfb->width + col;
+            if (index >= 0 && index < backfb->len)
+                backfb->pixels[index] = gl_color;
         }
     }
 }
@@ -60,7 +60,7 @@ void glFillRect(float xf, float yf, float widthf, float heightf) {
 
 void glFlush()
 {
-    // Empty implementation
+    // Copy implementation needed!
 }
 
 // --- [ glGetError ] ---
@@ -94,6 +94,9 @@ void glXSetContext(intptr_t address, int w, int h)
 {
     if (frontfb == NULL)
 		frontfb = FB_Existing(address, w, h);
+    
+    // Create back buffer version
+    backfb = FB_Existing((intptr_t)) malloc(w * h * 4), w, h);
 }
 
 #endif
