@@ -20,7 +20,7 @@ static uint32_t gl_clear_color = 0;
 
 void glClear()
 {
-	FB_Fill(backfb, gl_clear_color);
+	fb_fill(backfb, gl_clear_color);
 }
 
 // --- [ glClearColor ] ---
@@ -93,10 +93,10 @@ const char* glGetString(int id)
 void glXSetContext(intptr_t address, int w, int h)
 {
     if (frontfb == NULL)
-		frontfb = FB_Existing(address, w, h);
+		frontfb = fb_existing(address, w, h);
     
     // Create back buffer version
-    backfb = FB_Existing((intptr_t)) malloc(w * h * 4), w, h);
+    backfb = fb_existing((intptr_t)) malloc(w * h * 4), w, h);
 }
 
 #endif

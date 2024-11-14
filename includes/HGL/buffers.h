@@ -19,9 +19,9 @@ typedef struct {
  * EN: Creates an empty GLframebuffer.
  * ES: Crea un nuevo GLframebuffer.
  * =================================================================
- * NOTE: This method IS NOT the same as "FB_Existing(intptr_t, int, int)".
+ * NOTE: This method IS NOT the same as "fb_existing(intptr_t, int, int)".
  */
-GLframebuffer* FB_Create();
+GLframebuffer* fb_create();
 
 /**
  * =================================================================
@@ -30,24 +30,42 @@ GLframebuffer* FB_Create();
  * =================================================================
  * NOTE: Empty.
  */
-GLframebuffer* FB_Existing(intptr_t, int, int);
+GLframebuffer* fb_existing(intptr_t, int, int);
 
 /**
  * =================================================================
  * EN: Fills a GLframebuffer using a color.
  * ES: Rellena un GLframebuffer con un color.
  * =================================================================
- * NOTE: This method IS NOT the same as "glClear(void)".
+ * NOTE: Empty.
  */
-void FB_Fill(GLframebuffer*, uint32_t);
+void fb_fill(GLframebuffer*, uint32_t);
+
+/**
+ * =================================================================
+ * EN: Copies the second framebuffer to the first one.
+ * ES: Copia el contenido del segundo framebuffer al primero.
+ * =================================================================
+ * NOTE: Empty.
+ */
+void fb_copy(GLframebuffer*, GLframebuffer*);
 
 /**
  * =================================================================
  * EN: Fills a normal buffer using the specified value.
  * ES: Rellena un buffer cualquiera usando el valor especificado.
  * =================================================================
- * NOTE: This method IS NOT the same as "glClear(void)".
+ * NOTE: Empty.
  */
 void buffers_fillU32(uint32_t*, int, int, uint32_t);
+
+/**
+ * =================================================================
+ * EN: Copies the second buffer to the first one.
+ * ES: Copia el contenido del segundo buffer al primero.
+ * =================================================================
+ * NOTE: Empty.
+ */
+void buffers_copyU32(uint32_t*, uint32_t*, int, int);
 
 #endif // BUFFERS_H
