@@ -1,8 +1,8 @@
 #ifdef __WIN32__
 
-#include "HGL/hgl.h"
-#include "HGL/buffers.h"
-#include "HGL/colors.h"
+#include "hgl/HGL.h"
+#include "hgl/buffers.h"
+#include "hgl/colors.h"
 
 #include <stdint.h>
 

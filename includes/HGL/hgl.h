@@ -6,8 +6,13 @@
 #ifndef HGL_H
 #define HGL_H 1
 
+/* Enable */
+#define GL_DOUBLEBUFFER 0xc32
+
+/* String */
 #define GL_VERSION  0x1F02
 
+/* Error */
 #define GL_NO_ERROR                       0x0
 #define GL_INVALID_ENUM                   0x500
 #define GL_INVALID_VALUE                  0x501
@@ -46,6 +51,11 @@ void glClear();
  * NOTE: This method IS NOT the same as "glClear(void)".
  */
 void glClearColor(float, float, float);
+
+/**/ */
+void glDisable();
+
+void glEnable();
 
 // --- [ glFillRect ] ---
 
