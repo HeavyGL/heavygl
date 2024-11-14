@@ -7,7 +7,7 @@
 #include <stdint.h>
 
 /* Static variables */
-static GLframebuffer * fb = NULL;
+static GLframebuffer * frontfb = NULL;
 static GLerror gl_error = GL_NO_ERROR;
 
 static uint32_t gl_color       = 0;
@@ -19,7 +19,7 @@ static uint32_t gl_clear_color = 0;
 
 void glClear()
 {
-	FB_Fill(fb, gl_clear_color);
+	FB_Fill(frontfb, gl_clear_color);
 }
 
 // --- [ glClearColor ] ---
@@ -43,14 +43,14 @@ void glFillRect(float xf, float yf, float widthf, float heightf) {
 
     int x_start = x < 0 ? 0 : x;
     int y_start = y < 0 ? 0 : y;
-    int x_end = (x + width > fb->width) ? fb->width : (x + width);
-    int y_end = (y + height > fb->height) ? fb->height : (y + height);
+    int x_end = (x + width > frontfb->width) ? frontfb->width : (x + width);
+    int y_end = (y + height > frontfb->height) ? frontfb->height : (y + height);
 
     for (int row = y_start; row < y_end; row++) {
         for (int col = x_start; col < x_end; col++) {
-            int index = row * fb->width + col;
-            if (index >= 0 && index < fb->len)
-                fb->pixels[index] = gl_color;
+            int index = row * frontfb->width + col;
+            if (index >= 0 && index < frontfb->len)
+                frontfb->pixels[index] = gl_color;
         }
     }
 }
@@ -91,8 +91,8 @@ const char* glGetString(int id)
 
 void glXSetContext(intptr_t address, int w, int h)
 {
-    if (fb == NULL)
-		fb = FB_Existing(address, w, h);
+    if (frontfb == NULL)
+		frontfb = FB_Existing(address, w, h);
 }
 
 #endif
