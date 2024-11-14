@@ -7,7 +7,7 @@ GLframebuffer* fb_create()
 
 GLframebuffer* fb_existing(intptr_t address, int width, int height)
 {
-	GLframebuffer * fb = FB_Create();
+	GLframebuffer * fb = fb_create();
 	{
 		fb->width  = width;
 		fb->height = height;

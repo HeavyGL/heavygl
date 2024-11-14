@@ -96,7 +96,7 @@ void glXSetContext(intptr_t address, int w, int h)
 		frontfb = fb_existing(address, w, h);
     
     // Create back buffer version
-    backfb = fb_existing((intptr_t)) malloc(w * h * 4), w, h);
+    backfb = fb_existing((intptr_t) malloc(w * h * 4), w, h);
 }
 
 #endif
