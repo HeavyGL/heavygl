@@ -60,7 +60,7 @@ void glFillRect(float xf, float yf, float widthf, float heightf) {
 
 void glFlush()
 {
-    // Copy implementation needed!
+    fb_copy(frontfb, backfb);
 }
 
 // --- [ glGetError ] ---
