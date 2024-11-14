@@ -55,6 +55,13 @@ void glFillRect(float xf, float yf, float widthf, float heightf) {
     }
 }
 
+// --- [ glFlush ] ---
+
+void glFlush()
+{
+    // Empty implementation
+}
+
 // --- [ glGetError ] ---
 
 GLerror glGetError()
