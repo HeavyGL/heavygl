@@ -6,8 +6,11 @@
 #ifndef HGL_H
 #define HGL_H 1
 
-/* Enable */
-#define GL_DOUBLEBUFFER 0xc32
+#define HGL_API  
+#define HGL_APIENTRY
+
+/* Features */
+#define GL_DOUBLEBUFFER 0xC32
 
 /* String */
 #define GL_VERSION  0x1F02
@@ -27,6 +30,7 @@
 #include <stdint.h>
 
 typedef int GLerror;
+typedef int GLfeature;
 
 /*** HeavyGL Common Functions ***/
 
@@ -39,7 +43,7 @@ typedef int GLerror;
  * =================================================================
  * NOTE: Empty.
  */
-void glClear();
+HGL_API void HGL_APIENTRY glClear();
 
 // --- [ glClearColor ] ---
 
@@ -50,12 +54,31 @@ void glClear();
  * =================================================================
  * NOTE: This method IS NOT the same as "glClear(void)".
  */
-void glClearColor(float, float, float);
+HGL_API void HGL_APIENTRY glClearColor(float, float, float);
 
-/**/ */
-void glDisable();
+// --- [ glDisable ] ---
 
-void glEnable();
+/**
+ * =================================================================
+ * EN: Disables a HeavyGL feature.
+ * ES: Deshabilita una caracteristica de HeavyGL.
+ * =================================================================
+ * NOTE: Take a look at the Features section to see what can be
+ *       disabled.
+ */
+HGL_API void HGL_APIENTRY glDisable(GLfeature);
+
+// --- [ glEnable ] ---
+
+/**
+ * =================================================================
+ * EN: Enables a HeavyGL feature.
+ * ES: Habilita una carateristica de HeavyGL.
+ * =================================================================
+ * NOTE: Take a look at the Features section to see what can be
+ *       enabled.
+ */
+HGL_API void HGL_APIENTRY glEnable(GLfeature);
 
 // --- [ glFillRect ] ---
 
@@ -67,7 +90,7 @@ void glEnable();
  * =================================================================
  * NOTE: Empty.
  */
-void glFillRect(float, float, float, float);
+HGL_API void HGL_APIENTRY glFillRect(float, float, float, float);
 
 // --- [ glFlush ] ---
 
@@ -80,11 +103,11 @@ void glFillRect(float, float, float, float);
  * =================================================================
  * NOTE: Empty.
  */
-void glFlush();
+HGL_API void HGL_APIENTRY glFlush();
 
 // --- [ glGetError ] ---
 
-GLerror glGetError();
+HGL_API GLerror HGL_APIENTRY glGetError();
 
 // --- [ glGetString ] ---
 
@@ -96,7 +119,7 @@ GLerror glGetError();
  * =================================================================
  * NOTE: Empty.
  */
-const char* glGetString(int);
+HGL_API const char* HGL_APIENTRY glGetString(int);
 
 /*** HeavyGL Special Functions ***/
 
@@ -109,6 +132,6 @@ const char* glGetString(int);
  * =================================================================
  * NOTE: Empty.
  */
-void glXSetContext(intptr_t, int, int);
+HGL_API void HGL_APIENTRY glXSetContext(intptr_t, int, int);
 
 #endif // HGL_H
