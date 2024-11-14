@@ -80,7 +80,7 @@ const char* glGetString(int id)
     {
 		/** RETURNS THE HEAVYGL VERSION */
         case GL_VERSION:
-            return "a1.2.0 (preview)";
+            return "b1.2.0";
 			
 		/** WORKAROUND FOR INVALID ID'S */
         default:
