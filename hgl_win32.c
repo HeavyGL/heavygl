@@ -8,6 +8,7 @@
 
 /* Static variables */
 static GLframebuffer * frontfb = NULL;
+static GLframebuffer * backfb  = NULL;
 static GLerror gl_error = GL_NO_ERROR;
 
 static uint32_t gl_color       = 0;
